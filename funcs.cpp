@@ -93,3 +93,33 @@ TimeSlot scheduleAfter(TimeSlot ts, Movie nextMovie){
 
     return newT;
 }
+
+//task E
+//overlapping time slots
+
+bool timeOverlap(TimeSlot ts1, TimeSlot ts2){
+    bool isOverlap = false;
+    Time first = {ts1.startTime.h, ts1.startTime.m};
+    Time second = {ts2.startTime.h, ts2.startTime.m};
+
+    //check which showing is earlier
+    Time earlierShowing;
+    int dur; //set the duration of the movie based on which showing is earlier
+    if (minutesSinceMidnight(first) > minutesSinceMidnight(second)){
+        earlierShowing = second;
+        dur = ts2.movie.duration;
+    }
+    else {
+        earlierShowing = first;
+        dur = ts1.movie.duration;
+    }
+
+
+    int inBetween = minutesUntil(first, second); //find how many minutes it is in between both showings
+
+    if (dur > inBetween){
+        isOverlap = true;
+    }
+
+    return isOverlap;
+}
