@@ -95,3 +95,17 @@ TEST_CASE("Time Slot for the Next Movie for TASK D"){
     CHECK(output3D.startTime.m == 20);
 
 }
+
+//task E
+TEST_CASE("Checking for Overlap for TASK E"){
+    Movie movie1OV = {"Back to the Future", COMEDY, 116};
+    TimeSlot morning1e = {movie1OV, {9, 15}};
+    Movie movie2OV = {"Avatar", ACTION, 162};
+    TimeSlot morning2e = {movie2OV, {10, 30}};
+    CHECK(timeOverlap(morning1e, morning2e) == 1); //true
+
+    Movie movie3OV = {"Black Panther", ACTION, 134};
+    TimeSlot daytime3e = {movie3OV, {12, 15}};
+    CHECK(timeOverlap(morning1e, daytime3e) == 0); //false
+
+}
