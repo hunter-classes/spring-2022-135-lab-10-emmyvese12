@@ -79,6 +79,7 @@ int main(){
     std::cout << "\n";
     TimeSlot result2D = scheduleAfter(daytime1, movie2);
     std::cout << "The next showing for " << movie2.title << " is at " << result2D.startTime.h << ":" << result2D.startTime.m << std::endl;
+    std::cout << "\n";
 
 
     //task E
