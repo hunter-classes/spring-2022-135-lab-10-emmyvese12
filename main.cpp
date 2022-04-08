@@ -81,8 +81,27 @@ int main(){
     std::cout << "The next showing for " << movie2.title << " is at " << result2D.startTime.h << ":" << result2D.startTime.m << std::endl;
 
 
-    
+    //task E
 
+    //THESE TWO DO OVERLAP
+    //Movie movie2 = {"Black Panther", ACTION, 134};
+    //TimeSlot daytime1 = {movie2, {12, 15}}; 
+
+    //Movie movie4 = {"The Artist", DRAMA, 100};
+    //TimeSlot daytime2 = {movie4, {13, 40}};
+    
+    std::cout << "==============TASK E==============" << std::endl;
+    bool result1E = timeOverlap(daytime1, daytime2);
+    std::cout << getTimeSlot(daytime1) << std::endl;
+    std::cout << getTimeSlot(daytime2) << std::endl;
+    std::cout << "\nDO THEY OVERLAP? " << result1E << " == Yes\n";
+    std::cout << "----------------------------------" << std::endl;
+
+    bool result2E = timeOverlap(morning1, evening2);
+    std::cout << getTimeSlot(morning1) << std::endl;
+    std::cout << getTimeSlot(evening2) << std::endl;
+    std::cout << "\nDO THEY OVERLAP? " << result2E << " == No\n";
+    std::cout << "----------------------------------" << std::endl;
 
 
     return 0;
