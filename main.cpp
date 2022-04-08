@@ -1,12 +1,14 @@
 /*
 Emmy Veselinov
 CSCI 135 Lab-10
-Classes
+Classes, Enums, Movies
 */
 
 #include <iostream>
 #include "funcs.h"
 #include "time.h"
+#include "timeslot.h"
+#include "movie.h"
 
 int main(){
     //task A
@@ -17,16 +19,21 @@ int main(){
 
     Time t2Aa = {10, 30};
     Time t2Ab = {13, 40};
-    int result1B = minutesUntil(t2Aa, t2Ab);
-    std::cout << "Number of minutes in between " << t2Aa.h << ":" << t2Aa.m << " and " << t2Ab.h << ":" << t2Ab.m << " is " << result1B << " MINUTES\n" << std::endl;
+    int result2A = minutesUntil(t2Aa, t2Ab);
+    std::cout << "Number of minutes in between " << t2Aa.h << ":" << t2Aa.m << " and " << t2Ab.h << ":" << t2Ab.m << " is " << result2A << " MINUTES\n" << std::endl;
 
     //task B
     Time time0B = {8,10};
     int min1 = 75;
-    Time result2A = addMinutes(time0B, min1);
+    Time result1B = addMinutes(time0B, min1);
     std::cout << "==============TASK B==============" << std::endl;
-    std::cout << "Old Time: " << time0B.h << ":" << time0B.m << " Minutes Shift: " << min1 << " New Time: " << result2A.h << ":" << result2A.m << std::endl;
+    std::cout << "Old Time: " << time0B.h << ":" << time0B.m << " Minutes Shift: " << min1 << " New Time: " << result1B.h << ":" << result1B.m << std::endl;
     std::cout << "\n";
+    Time time0B2 = {13, 25};
+    int min2 = 45;
+    Time result2B = addMinutes(time0B2, min2);
+    std::cout << "Old Time: " <<time0B2.h << ":" << time0B2.m << " Minutes Shift: " << min2 << " New Time: " << result2B.h << ":" << result2B.m << std::endl;
+    std::cout << "\n"; 
 
     //task C
     //std::string result1 = printMovie(movie1);
@@ -64,6 +71,15 @@ int main(){
     std::string result6C = getTimeSlot(evening2);
     std::cout << result6C << std::endl;
     std::cout << "\n";
+
+    //task D
+    std::cout << "==============TASK D==============" << std::endl;
+    TimeSlot result1D = scheduleAfter(morning1, movie1);
+    std::cout << "The next showing for " << movie1.title << " is at " << result1D.startTime.h << ":" << result1D.startTime.m << std::endl;
+    std::cout << "\n";
+    TimeSlot result2D = scheduleAfter(daytime1, movie2);
+    std::cout << "The next showing for " << movie2.title << " is at " << result2D.startTime.h << ":" << result2D.startTime.m << std::endl;
+
 
     
 
