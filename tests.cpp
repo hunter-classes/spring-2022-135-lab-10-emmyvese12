@@ -74,3 +74,24 @@ TEST_CASE("Printing TimeSlots for TASK C"){
     CHECK(getTimeSlot(evening1) == "National Treasure ACTION (145 min) [starts at 18:20, ends by 20:45]");
 
 }
+
+//task D
+TEST_CASE("Time Slot for the Next Movie for TASK D"){
+    Movie movie1NM = {"Home Alone 2: Lost in New York", COMEDY, 120};
+    TimeSlot daytime1d = {movie1NM, {14,10}};
+    Movie movie2NM = {"Avatar", ACTION, 162};
+    TimeSlot morning2d = {movie2NM, {10, 30}};
+    Movie movie3NM = {"The Artist", DRAMA, 100};
+    TimeSlot daytime3d = {movie3NM, {13, 40}};
+
+    TimeSlot output1D = scheduleAfter(daytime1d, movie1NM);
+    CHECK(output1D.startTime.h == 16);
+    CHECK(output1D.startTime.m == 10);
+    TimeSlot output2D = scheduleAfter(morning2d, movie2NM);
+    CHECK(output2D.startTime.h == 13);
+    CHECK(output2D.startTime.m == 12);
+    TimeSlot output3D = scheduleAfter(daytime3d, movie3NM);
+    CHECK(output3D.startTime.h == 15);
+    CHECK(output3D.startTime.m == 20);
+
+}
