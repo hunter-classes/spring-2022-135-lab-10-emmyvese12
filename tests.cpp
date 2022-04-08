@@ -51,3 +51,26 @@ TEST_CASE("Add Minutes to Old Time for TASK B"){
     CHECK((addMinutes(t5, min5)).m == 9);
 
 }
+
+//task C
+TEST_CASE("Printing Movie Titles and their Durations for TASK C"){
+    Movie movie1M = {"Back to the Future", COMEDY, 116};
+    Movie movie2M = {"Black Panther", ACTION, 134};
+    Movie movie3M = {"Home Alone 2: Lost in New York", COMEDY, 120};
+    CHECK(printMovie(movie1M) == "Back to the Future COMEDY (116 min)");
+    CHECK(printMovie(movie2M) == "Black Panther ACTION (134 min)");
+    CHECK(printMovie(movie3M) == "Home Alone 2: Lost in New York COMEDY (120 min)");
+}
+
+TEST_CASE("Printing TimeSlots for TASK C"){
+    Movie movie1T = {"Back to the Future", COMEDY, 116};
+    Movie movie2T = {"Black Panther", ACTION, 134};
+    Movie movie3T = {"National Treasure", ACTION, 145};
+    TimeSlot morning1 = {movie1T, {9, 15}};  
+    TimeSlot daytime1 = {movie2T, {12, 15}}; 
+    TimeSlot evening1 = {movie3T, {18, 20}};
+    CHECK(getTimeSlot(morning1) == "Back to the Future COMEDY (116 min) [starts at 9:15, ends by 11:11]");
+    CHECK(getTimeSlot(daytime1) == "Black Panther ACTION (134 min) [starts at 12:15, ends by 14:29]");
+    CHECK(getTimeSlot(evening1) == "National Treasure ACTION (145 min) [starts at 18:20, ends by 20:45]");
+
+}
