@@ -83,3 +83,13 @@ std::string getTimeSlot(TimeSlot ts){
 
 
 }
+
+//task D
+//scheduling x after y (immediately after the timeslot)
+
+TimeSlot scheduleAfter(TimeSlot ts, Movie nextMovie){
+    Time t1 = {ts.startTime.h, ts.startTime.m};
+    TimeSlot newT = {nextMovie, addMinutes(t1, nextMovie.duration)};
+
+    return newT;
+}
