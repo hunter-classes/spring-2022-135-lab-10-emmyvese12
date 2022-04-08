@@ -26,3 +26,28 @@ TEST_CASE("Minutes Until Time A to Time B for TASK A"){
     
 
 }
+
+//task B
+TEST_CASE("Add Minutes to Old Time for TASK B"){
+    Time t1 = {4,30};
+    int min1 = 30;
+    CHECK((addMinutes(t1, min1)).h == 5);
+    CHECK((addMinutes(t1, min1)).m == 0);
+    Time t2 = {13,45};
+    int min2 = 22;
+    CHECK((addMinutes(t2, min2)).h == 14);
+    CHECK((addMinutes(t2, min2)).m == 7);
+    Time t3 = {21, 2};
+    int min3 = 60;
+    CHECK((addMinutes(t3, min3)).h == 22);
+    CHECK((addMinutes(t3, min3)).m == 2);
+    Time t4 = {1, 55};
+    int min4 = 80;
+    CHECK((addMinutes(t4, min4)).h == 3);
+    CHECK((addMinutes(t4, min4)).m == 15);
+    Time t5 = {20, 8};
+    int min5 = 121;
+    CHECK((addMinutes(t5, min5)).h == 22);
+    CHECK((addMinutes(t5, min5)).m == 9);
+
+}
